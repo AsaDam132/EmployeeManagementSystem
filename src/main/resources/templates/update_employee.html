@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Employee Management System</title>
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <h1 style="color:blue;">Employee Management System</h1>
+  <hr>
+  <h2 style = "color:blue;">Add Employees</h2>
+
+  <form action="#" method="POST" th:action="@{/saveEmployee}"
+        th:object="${employee}">
+
+    <!-- Add hidden form field to handle update -->
+    <input th:field="*{id}"  type="hidden" />
+
+    <strong style = "color:blue;">FirstName:</strong> <input class="form-control mb-4 col-4" th:field="*{firstName}" type="text">
+
+    <strong style = "color: blue;">LastName: </strong> <input class="form-control mb-4 col-4" th:field="*{lastName}" type="text">
+
+    <strong style = "color: blue;">Email: </strong> <input class="form-control mb-4 col-4" th:field="*{email}" type="text">
+
+    <br>
+    <strong style = "color:blue;">Departments: </strong>
+
+    <input name="departments" type="radio" value="Frontend Department"> Frontend  Department<br>
+    <input name="departments" type="radio" value="Backend Department"> Backend Department<br>
+    <input name="departments" type="radio" value="UI/UX Department"> UI/UX Department<br>
+    <input name="departments" type="radio" value="Frontend Department"> Testing Department<br>
+    <input name="departments" type="radio" value="Backend Department"> Technical Department<br>
+
+    <strong style = "color:blue;">PhoneNumber:</strong><input class="form-control mb-4 col-4" th:field="*{phoneNumber}" type="text">
+
+    <strong style = "color:blue;">Salary:</strong><input class="form-control mb-4 col-4" th:field="*{salary}" type="text">
+
+    <strong style = "color:blue;">Address:</strong><input class="form-control mb-4 col-4" th:field="*{address}" type="text">
+
+
+
+    <button class="btn btn-info col-2" type="submit"> Update Employee</button>
+
+    <a th:href = "@{/home}"> Back to Employee List</a><br>
+  </form>
+
+  <hr>
+
+
+</div>
+</body>
+</html>
